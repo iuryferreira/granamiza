@@ -25,13 +25,12 @@ switch ($command)
     "proj:ref" { dotnet add "src/$solutionName.$param" reference "src/$solutionName.$param2" }
 
     # Database
-    "db:migration" { dotnet ef migrations add $param -o Infra/Data/Migrations -s "src/$solutionName.$param2" }
+    "db:migration" { dotnet ef migrations add $param -o Infra/Migrations -s "src/$solutionName.$param2" }
     "db:up" { dotnet ef database update -s "src/$solutionName.$param" }
 
 
     # Runners
-    "web:serve" { dotnet watch run -p "src/$solutionName.Client"}
-    "api:serve" { dotnet watch run -p "src/$solutionName.Api"}
+    "api:serve" { dotnet watch run --project "src/$solutionName.Api" -- --environment Development}
 
     # Test
     "test:run" { dotnet test --nologo ; Remove-item "src/$solutionName.Tests/*" -Recurse -Include "TestResults"}
