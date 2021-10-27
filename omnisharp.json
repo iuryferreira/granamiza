@@ -1,0 +1,14 @@
+{
+    "FormattingOptions": {
+        "SpacingAfterMethodDeclarationName": true
+    },
+    "FileOptions": {
+        "SystemExcludeSearchPatterns": [
+            "**/node_modules/**/*",
+            "**/.git/**/*"
+        ]
+    },
+    "RoslynExtensionsOptions": {
+        "EnableAnalyzersSupport": true
+    }
+}
